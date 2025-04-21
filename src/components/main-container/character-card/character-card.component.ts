@@ -1,9 +1,8 @@
-import { CharacterInfo } from './../../../models/character.model';
 import {
   ChangeDetectionStrategy,
   Component,
   effect,
-  Injector,
+  // Injector,
   input,
   OnInit,
   output,
@@ -26,5 +25,11 @@ export class CharacterCardComponent implements OnInit {
 
   ngOnInit() {
     this.loaded.emit(this.characterInfo().url);
+  }
+
+  constructor() {
+    effect(() => {
+      this.loaded.emit(this.characterInfo().url)
+    })
   }
 }

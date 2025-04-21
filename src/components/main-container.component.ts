@@ -10,7 +10,7 @@ import { CharacterCardComponent } from './main-container/character-card';
   standalone: true,
   imports: [AsyncPipe, CharacterCardComponent],
   templateUrl: './main-container.component.html',
-  styleUrl: './main-container.component.scss',
+  styleUrls: ['./main-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainContainerComponent {
@@ -19,7 +19,7 @@ export class MainContainerComponent {
   characters$: Observable<Character[]> = this.charactersService.getCharacters();
 
   async makeApiCall(url: string) {
-    let character = await firstValueFrom(
+    const character = await firstValueFrom(
       this.charactersService.getCharacterInformation(url)
     );
 
